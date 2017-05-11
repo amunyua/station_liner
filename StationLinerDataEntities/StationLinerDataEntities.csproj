@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28A0A5C5-F1DA-4F48-A516-3681209AC5AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StationLinerDataEntities</RootNamespace>
+    <AssemblyName>StationLinerDataEntities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataLayerConstants.cs" />
+    <Compile Include="Migrations\201703091428184_Roles.cs" />
+    <Compile Include="Migrations\201703091428184_Roles.Designer.cs">
+      <DependentUpon>201703091428184_Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703130730348_menus.cs" />
+    <Compile Include="Migrations\201703130730348_menus.Designer.cs">
+      <DependentUpon>201703130730348_menus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703130731415_user_roles.cs" />
+    <Compile Include="Migrations\201703130731415_user_roles.Designer.cs">
+      <DependentUpon>201703130731415_user_roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703130732406_UserRolesAllocations.cs" />
+    <Compile Include="Migrations\201703130732406_UserRolesAllocations.Designer.cs">
+      <DependentUpon>201703130732406_UserRolesAllocations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703141152222_usertable.cs" />
+    <Compile Include="Migrations\201703141152222_usertable.Designer.cs">
+      <DependentUpon>201703141152222_usertable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703141226009_editforeignkeys.cs" />
+    <Compile Include="Migrations\201703141226009_editforeignkeys.Designer.cs">
+      <DependentUpon>201703141226009_editforeignkeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703141231080_editforeignkeys1.cs" />
+    <Compile Include="Migrations\201703141231080_editforeignkeys1.Designer.cs">
+      <DependentUpon>201703141231080_editforeignkeys1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703141302065_foreign_keys.cs" />
+    <Compile Include="Migrations\201703141302065_foreign_keys.Designer.cs">
+      <DependentUpon>201703141302065_foreign_keys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703150827180_addParentIdToMenuAllocation.cs" />
+    <Compile Include="Migrations\201703150827180_addParentIdToMenuAllocation.Designer.cs">
+      <DependentUpon>201703150827180_addParentIdToMenuAllocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703160718219_removeRequiredAttribute.cs" />
+    <Compile Include="Migrations\201703160718219_removeRequiredAttribute.Designer.cs">
+      <DependentUpon>201703160718219_removeRequiredAttribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703160741157_CrudActions.cs" />
+    <Compile Include="Migrations\201703160741157_CrudActions.Designer.cs">
+      <DependentUpon>201703160741157_CrudActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703160745081_AddCrudActionsColumn.cs" />
+    <Compile Include="Migrations\201703160745081_AddCrudActionsColumn.Designer.cs">
+      <DependentUpon>201703160745081_AddCrudActionsColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703171101186_editInt.cs" />
+    <Compile Include="Migrations\201703171101186_editInt.Designer.cs">
+      <DependentUpon>201703171101186_editInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703171113407_ForeinKey.cs" />
+    <Compile Include="Migrations\201703171113407_ForeinKey.Designer.cs">
+      <DependentUpon>201703171113407_ForeinKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703171223358_dropforeinkey.cs" />
+    <Compile Include="Migrations\201703171223358_dropforeinkey.Designer.cs">
+      <DependentUpon>201703171223358_dropforeinkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703200950273_users_view.cs" />
+    <Compile Include="Migrations\201703200950273_users_view.Designer.cs">
+      <DependentUpon>201703200950273_users_view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703210634412_unitofmeasure.cs" />
+    <Compile Include="Migrations\201703210634412_unitofmeasure.Designer.cs">
+      <DependentUpon>201703210634412_unitofmeasure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703210823305_suppliers.cs" />
+    <Compile Include="Migrations\201703210823305_suppliers.Designer.cs">
+      <DependentUpon>201703210823305_suppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703211040011_productcategories.cs" />
+    <Compile Include="Migrations\201703211040011_productcategories.Designer.cs">
+      <DependentUpon>201703211040011_productcategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703211201531_Products.cs" />
+    <Compile Include="Migrations\201703211201531_Products.Designer.cs">
+      <DependentUpon>201703211201531_Products.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703211427429_WarehouseTypes.cs" />
+    <Compile Include="Migrations\201703211427429_WarehouseTypes.Designer.cs">
+      <DependentUpon>201703211427429_WarehouseTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703220914046_warehouses.cs" />
+    <Compile Include="Migrations\201703220914046_warehouses.Designer.cs">
+      <DependentUpon>201703220914046_warehouses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703221317550_warehouseProducts.cs" />
+    <Compile Include="Migrations\201703221317550_warehouseProducts.Designer.cs">
+      <DependentUpon>201703221317550_warehouseProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703240911487_supplierProducts.cs" />
+    <Compile Include="Migrations\201703240911487_supplierProducts.Designer.cs">
+      <DependentUpon>201703240911487_supplierProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703240953262_supplierDriver.cs" />
+    <Compile Include="Migrations\201703240953262_supplierDriver.Designer.cs">
+      <DependentUpon>201703240953262_supplierDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703241124236_SupplierVehicles.cs" />
+    <Compile Include="Migrations\201703241124236_SupplierVehicles.Designer.cs">
+      <DependentUpon>201703241124236_SupplierVehicles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703280958337_AddAvailableStockColumn.cs" />
+    <Compile Include="Migrations\201703280958337_AddAvailableStockColumn.Designer.cs">
+      <DependentUpon>201703280958337_AddAvailableStockColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703311152281_Transactions.cs" />
+    <Compile Include="Migrations\201703311152281_Transactions.Designer.cs">
+      <DependentUpon>201703311152281_Transactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703311154276_transactionDetails.cs" />
+    <Compile Include="Migrations\201703311154276_transactionDetails.Designer.cs">
+      <DependentUpon>201703311154276_transactionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703311156383_transactionDocuments.cs" />
+    <Compile Include="Migrations\201703311156383_transactionDocuments.Designer.cs">
+      <DependentUpon>201703311156383_transactionDocuments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703311200000_fuelDetails.cs" />
+    <Compile Include="Migrations\201703311200000_fuelDetails.Designer.cs">
+      <DependentUpon>201703311200000_fuelDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703311405447_makeDoublenotrequired.cs" />
+    <Compile Include="Migrations\201703311405447_makeDoublenotrequired.Designer.cs">
+      <DependentUpon>201703311405447_makeDoublenotrequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703311549123_GeneralSettings.cs" />
+    <Compile Include="Migrations\201703311549123_GeneralSettings.Designer.cs">
+      <DependentUpon>201703311549123_GeneralSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704040814287_foreignkey.cs" />
+    <Compile Include="Migrations\201704040814287_foreignkey.Designer.cs">
+      <DependentUpon>201704040814287_foreignkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704271026387_UserLevelCreatedBy.cs" />
+    <Compile Include="Migrations\201704271026387_UserLevelCreatedBy.Designer.cs">
+      <DependentUpon>201704271026387_UserLevelCreatedBy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704271248546_ChannelDetails.cs" />
+    <Compile Include="Migrations\201704271248546_ChannelDetails.Designer.cs">
+      <DependentUpon>201704271248546_ChannelDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704271528567_ForeignkeyChannelId.cs" />
+    <Compile Include="Migrations\201704271528567_ForeignkeyChannelId.Designer.cs">
+      <DependentUpon>201704271528567_ForeignkeyChannelId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704271753244_currency.cs" />
+    <Compile Include="Migrations\201704271753244_currency.Designer.cs">
+      <DependentUpon>201704271753244_currency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704280915453_Taxes.cs" />
+    <Compile Include="Migrations\201704280915453_Taxes.Designer.cs">
+      <DependentUpon>201704280915453_Taxes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704291143343_Staff.cs" />
+    <Compile Include="Migrations\201704291143343_Staff.Designer.cs">
+      <DependentUpon>201704291143343_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704291201577_addBusinessRoleStaff.cs" />
+    <Compile Include="Migrations\201704291201577_addBusinessRoleStaff.Designer.cs">
+      <DependentUpon>201704291201577_addBusinessRoleStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704291223550_addidnumbertostaff.cs" />
+    <Compile Include="Migrations\201704291223550_addidnumbertostaff.Designer.cs">
+      <DependentUpon>201704291223550_addidnumbertostaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705010939497_Shifts.cs" />
+    <Compile Include="Migrations\201705010939497_Shifts.Designer.cs">
+      <DependentUpon>201705010939497_Shifts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705011232502_addDeletedColumninchannelstable.cs" />
+    <Compile Include="Migrations\201705011232502_addDeletedColumninchannelstable.Designer.cs">
+      <DependentUpon>201705011232502_addDeletedColumninchannelstable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705011638509_PumpManagement.cs" />
+    <Compile Include="Migrations\201705011638509_PumpManagement.Designer.cs">
+      <DependentUpon>201705011638509_PumpManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705011749512_addcolumnstonozzle.cs" />
+    <Compile Include="Migrations\201705011749512_addcolumnstonozzle.Designer.cs">
+      <DependentUpon>201705011749512_addcolumnstonozzle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705011811404_specific.cs" />
+    <Compile Include="Migrations\201705011811404_specific.Designer.cs">
+      <DependentUpon>201705011811404_specific.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705040953406_CrudMenuActions.cs" />
+    <Compile Include="Migrations\201705040953406_CrudMenuActions.Designer.cs">
+      <DependentUpon>201705040953406_CrudMenuActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041001466_UpdateCrudMenuActions.cs" />
+    <Compile Include="Migrations\201705041001466_UpdateCrudMenuActions.Designer.cs">
+      <DependentUpon>201705041001466_UpdateCrudMenuActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051024150_UserLayout.cs" />
+    <Compile Include="Migrations\201705051024150_UserLayout.Designer.cs">
+      <DependentUpon>201705051024150_UserLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051235345_EditMenuTable.cs" />
+    <Compile Include="Migrations\201705051235345_EditMenuTable.Designer.cs">
+      <DependentUpon>201705051235345_EditMenuTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705080736179_UserAllocatedChannels.cs" />
+    <Compile Include="Migrations\201705080736179_UserAllocatedChannels.Designer.cs">
+      <DependentUpon>201705080736179_UserAllocatedChannels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705080822248_UpdateUserAllocatedChannelsTable.cs" />
+    <Compile Include="Migrations\201705080822248_UpdateUserAllocatedChannelsTable.Designer.cs">
+      <DependentUpon>201705080822248_UpdateUserAllocatedChannelsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705090916004_Update-lauyouts-table.cs" />
+    <Compile Include="Migrations\201705090916004_Update-lauyouts-table.Designer.cs">
+      <DependentUpon>201705090916004_Update-lauyouts-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705090935071_Update-lauyouts-table1.cs" />
+    <Compile Include="Migrations\201705090935071_Update-lauyouts-table1.Designer.cs">
+      <DependentUpon>201705090935071_Update-lauyouts-table1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BusinessRoles.cs" />
+    <Compile Include="Models\Channels.cs" />
+    <Compile Include="Models\ChannelTypes.cs" />
+    <Compile Include="Models\CRUDAction.cs" />
+    <Compile Include="Models\CrudMenuActions.cs" />
+    <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\GeneralSettings.cs" />
+    <Compile Include="Models\Layout.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\Pump.cs" />
+    <Compile Include="Models\ShiftManagement.cs" />
+    <Compile Include="Models\ShitfDetails.cs" />
+    <Compile Include="Models\StaffManagement.cs" />
+    <Compile Include="Models\Tax.cs" />
+    <Compile Include="Models\Transactions.cs" />
+    <Compile Include="Models\IMSDataContext.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Roles.cs" />
+    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\UOM.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserAllocatedChannels.cs" />
+    <Compile Include="Models\UserDetails.cs" />
+    <Compile Include="Models\UserRoleAllocation.cs" />
+    <Compile Include="Models\UserRoles.cs" />
+    <Compile Include="Models\Warehouse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703091428184_Roles.resx">
+      <DependentUpon>201703091428184_Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703130730348_menus.resx">
+      <DependentUpon>201703130730348_menus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703130731415_user_roles.resx">
+      <DependentUpon>201703130731415_user_roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703130732406_UserRolesAllocations.resx">
+      <DependentUpon>201703130732406_UserRolesAllocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703141152222_usertable.resx">
+      <DependentUpon>201703141152222_usertable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703141226009_editforeignkeys.resx">
+      <DependentUpon>201703141226009_editforeignkeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703141231080_editforeignkeys1.resx">
+      <DependentUpon>201703141231080_editforeignkeys1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703141302065_foreign_keys.resx">
+      <DependentUpon>201703141302065_foreign_keys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703150827180_addParentIdToMenuAllocation.resx">
+      <DependentUpon>201703150827180_addParentIdToMenuAllocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703160718219_removeRequiredAttribute.resx">
+      <DependentUpon>201703160718219_removeRequiredAttribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703160741157_CrudActions.resx">
+      <DependentUpon>201703160741157_CrudActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703160745081_AddCrudActionsColumn.resx">
+      <DependentUpon>201703160745081_AddCrudActionsColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703171101186_editInt.resx">
+      <DependentUpon>201703171101186_editInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703171113407_ForeinKey.resx">
+      <DependentUpon>201703171113407_ForeinKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703171223358_dropforeinkey.resx">
+      <DependentUpon>201703171223358_dropforeinkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703200950273_users_view.resx">
+      <DependentUpon>201703200950273_users_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703210634412_unitofmeasure.resx">
+      <DependentUpon>201703210634412_unitofmeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703210823305_suppliers.resx">
+      <DependentUpon>201703210823305_suppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703211040011_productcategories.resx">
+      <DependentUpon>201703211040011_productcategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703211201531_Products.resx">
+      <DependentUpon>201703211201531_Products.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703211427429_WarehouseTypes.resx">
+      <DependentUpon>201703211427429_WarehouseTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703220914046_warehouses.resx">
+      <DependentUpon>201703220914046_warehouses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221317550_warehouseProducts.resx">
+      <DependentUpon>201703221317550_warehouseProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703240911487_supplierProducts.resx">
+      <DependentUpon>201703240911487_supplierProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703240953262_supplierDriver.resx">
+      <DependentUpon>201703240953262_supplierDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703241124236_SupplierVehicles.resx">
+      <DependentUpon>201703241124236_SupplierVehicles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703280958337_AddAvailableStockColumn.resx">
+      <DependentUpon>201703280958337_AddAvailableStockColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703311152281_Transactions.resx">
+      <DependentUpon>201703311152281_Transactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703311154276_transactionDetails.resx">
+      <DependentUpon>201703311154276_transactionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703311156383_transactionDocuments.resx">
+      <DependentUpon>201703311156383_transactionDocuments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703311200000_fuelDetails.resx">
+      <DependentUpon>201703311200000_fuelDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703311405447_makeDoublenotrequired.resx">
+      <DependentUpon>201703311405447_makeDoublenotrequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703311549123_GeneralSettings.resx">
+      <DependentUpon>201703311549123_GeneralSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704040814287_foreignkey.resx">
+      <DependentUpon>201704040814287_foreignkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704271026387_UserLevelCreatedBy.resx">
+      <DependentUpon>201704271026387_UserLevelCreatedBy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704271248546_ChannelDetails.resx">
+      <DependentUpon>201704271248546_ChannelDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704271528567_ForeignkeyChannelId.resx">
+      <DependentUpon>201704271528567_ForeignkeyChannelId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704271753244_currency.resx">
+      <DependentUpon>201704271753244_currency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704280915453_Taxes.resx">
+      <DependentUpon>201704280915453_Taxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704291143343_Staff.resx">
+      <DependentUpon>201704291143343_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704291201577_addBusinessRoleStaff.resx">
+      <DependentUpon>201704291201577_addBusinessRoleStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704291223550_addidnumbertostaff.resx">
+      <DependentUpon>201704291223550_addidnumbertostaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705010939497_Shifts.resx">
+      <DependentUpon>201705010939497_Shifts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705011232502_addDeletedColumninchannelstable.resx">
+      <DependentUpon>201705011232502_addDeletedColumninchannelstable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705011638509_PumpManagement.resx">
+      <DependentUpon>201705011638509_PumpManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705011749512_addcolumnstonozzle.resx">
+      <DependentUpon>201705011749512_addcolumnstonozzle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705011811404_specific.resx">
+      <DependentUpon>201705011811404_specific.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705040953406_CrudMenuActions.resx">
+      <DependentUpon>201705040953406_CrudMenuActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041001466_UpdateCrudMenuActions.resx">
+      <DependentUpon>201705041001466_UpdateCrudMenuActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051024150_UserLayout.resx">
+      <DependentUpon>201705051024150_UserLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051235345_EditMenuTable.resx">
+      <DependentUpon>201705051235345_EditMenuTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705080736179_UserAllocatedChannels.resx">
+      <DependentUpon>201705080736179_UserAllocatedChannels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705080822248_UpdateUserAllocatedChannelsTable.resx">
+      <DependentUpon>201705080822248_UpdateUserAllocatedChannelsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705090916004_Update-lauyouts-table.resx">
+      <DependentUpon>201705090916004_Update-lauyouts-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705090935071_Update-lauyouts-table1.resx">
+      <DependentUpon>201705090935071_Update-lauyouts-table1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
